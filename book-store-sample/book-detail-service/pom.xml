@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wzh.study.spring.cloud</groupId>
-	<artifactId>detail-service</artifactId>
+	<artifactId>book-detail-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>detail-service</name>
-	<description>Demo project for Spring Boot</description>
+	<name>book-detail-service</name>
+	<description>Study spring cloud book-store-sample book-detail-service</description>
 
 	<properties>
 		<java.version>1.8</java.version>
@@ -35,7 +35,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<optional>true</optional>
 		</dependency>
 
 		<dependency>
