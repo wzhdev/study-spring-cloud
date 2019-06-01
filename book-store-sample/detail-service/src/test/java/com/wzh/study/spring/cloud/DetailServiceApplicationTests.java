@@ -1,4 +1,4 @@
-package com.wzh.study.spring.cloud.detailservice;
+package com.wzh.study.spring.cloud;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

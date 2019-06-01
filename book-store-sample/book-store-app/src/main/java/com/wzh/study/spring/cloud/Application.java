@@ -1,13 +1,13 @@
-package com.wzh.study.spring.cloud.detailservice;
+package com.wzh.study.spring.cloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DetailServiceApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DetailServiceApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
