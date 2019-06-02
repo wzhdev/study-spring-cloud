@@ -1,5 +1,5 @@
 spring:
   application:
-    name: book-detail-service
+    name: book-store-app
   profiles:
     active: dev

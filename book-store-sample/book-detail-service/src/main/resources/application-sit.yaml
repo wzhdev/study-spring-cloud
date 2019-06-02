@@ -1,0 +1,21 @@
+server:
+  port: 8180
+  servlet:
+    context-path: /${spring.application.name}
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+  cloud:
+    consul:
+      host: 172.17.0.1
+      discovery:
+        ipAddress: ${HOST_IP}
+        serviceName: ${spring.application.name}
+        instanceId: ${spring.application.name}:${HOST_IP}:${spring.application.instance_id:${server.port}}
+        aclToken: 8161228e-88a0-b5c5-2112-5b4e51c59aed
+        healthCheckPath: /${spring.application.name}/actuator/health
+        healthCheckCriticalTimeout: 60s
+        preferIpAddress: true
+        tags: foo=bar, baz

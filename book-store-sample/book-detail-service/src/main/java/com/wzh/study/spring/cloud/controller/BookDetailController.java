@@ -21,8 +21,8 @@ public class BookDetailController {
     private Logger logger = LoggerFactory.getLogger(BookDetailController.class);
 
     @GetMapping("/bookDetail/{id}")
-    @ApiOperation("get Book Detail by id")
-    public ResponseEntity<BookDetail> getBookDetailById(@ApiParam(value = "the book id", type = "int", example = "1") @PathVariable("id") int id) {
+    @ApiOperation(value = "按书籍ID获取书籍详情", produces = "application/json")
+    public ResponseEntity<BookDetail> getBookDetailById(@ApiParam(value = "书籍ID", type = "int", example = "1") @PathVariable("id") int id) {
         logger.info("id: {}", id);
         BookDetail bd = new BookDetail();
         bd.setId(id);

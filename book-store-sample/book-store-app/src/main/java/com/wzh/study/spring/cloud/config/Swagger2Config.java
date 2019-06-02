@@ -28,8 +28,8 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Study spring cloud book-store-sample book-detail-service")
-                .description("Study spring cloud book-store-sample book-detail-service")
+                .title("Study spring cloud book-store-sample book-store-app")
+                .description("Study spring cloud book-store-sample book-store-app")
                 .termsOfServiceUrl("http://localhost")
                 .version("1.0")
                 .build();
