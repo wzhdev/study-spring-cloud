@@ -1,21 +1,23 @@
 server:
-  port: 8180
-  servlet:
-    context-path: /${spring.application.name}
-
+  error:
+    include-stacktrace: ON_TRACE_PARAM
 spring:
-  devtools:
-    restart:
-      enabled: true
   cloud:
     consul:
-      host: 172.17.0.1
+      enabled: true
+      host: consul.wzh
       discovery:
-        ipAddress: ${HOST_IP}
-        serviceName: ${spring.application.name}
-        instanceId: ${spring.application.name}:${HOST_IP}:${spring.application.instance_id:${server.port}}
-        aclToken: 8161228e-88a0-b5c5-2112-5b4e51c59aed
+        aclToken: ${spring.cloud.consul.token}
+        instanceId: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
         healthCheckPath: /${spring.application.name}/actuator/health
         healthCheckCriticalTimeout: 60s
         preferIpAddress: true
         tags: foo=bar, baz
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://192.168.1.121:3306/book_detail_service
+    username: sa
+    pool-size: 10

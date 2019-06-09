@@ -1,5 +1,6 @@
 package com.wzh.study.spring.cloud.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -16,6 +17,16 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 public class Swagger2Config {
 
+    @Value("${info.app.name}")
+    private String appName;
+
+    @Value("${info.app.description}")
+    private String appDescription;
+
+    @Value("${info.app.version}")
+    private String appVersion;
+
+
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
@@ -28,10 +39,9 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Study spring cloud book-store-sample book-detail-service")
-                .description("Study spring cloud book-store-sample book-detail-service")
-                .termsOfServiceUrl("http://localhost")
-                .version("1.0")
+                .title(appName)
+                .description(appDescription)
+                .version(appVersion)
                 .build();
     }
 }

@@ -1,20 +1,26 @@
 server:
-  port: 8180
-  servlet:
-    context-path: /${spring.application.name}
-
+  error:
+    include-stacktrace: ALWAYS
+management:
+  endpoint:
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 spring:
   devtools:
     restart:
       enabled: true
   cloud:
     consul:
-      host: 192.168.1.124
-      discovery:
-        serviceName: ${spring.application.name}
-        instanceId: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
-        aclToken: 8161228e-88a0-b5c5-2112-5b4e51c59aed
-        healthCheckPath: /${spring.application.name}/actuator/health
-        healthCheckCriticalTimeout: 60s
-        preferIpAddress: true
-        tags: foo=bar, baz
+      enabled: false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:h2:mem:mydb?DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    pool-size: 10

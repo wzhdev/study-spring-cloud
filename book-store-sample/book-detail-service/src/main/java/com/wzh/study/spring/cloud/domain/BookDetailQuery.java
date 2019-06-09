@@ -4,14 +4,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.util.Date;
-
 @Data
-@ApiModel("书籍详情")
-public class BookDetail {
-
-    @ApiModelProperty(value = "ID")
-    private int id;
+@ApiModel("书籍详情查询参数")
+public class BookDetailQuery {
 
     @ApiModelProperty(value = "标题")
     private String title;
@@ -19,7 +14,7 @@ public class BookDetail {
     @ApiModelProperty(value = "作者")
     private String author;
 
-    @ApiModelProperty(value = "出版日期")
-    private Date pubdate;
+    @ApiModelProperty(value = "ISBN")
+    private String isbn;
 
 }
