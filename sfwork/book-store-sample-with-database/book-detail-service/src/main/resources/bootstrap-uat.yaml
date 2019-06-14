@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    vault:
+      enabled: true
+      host: vault.wzh
+      token: s.YGTUcb4D4ZKpxiKbzUUPi1Jv
+      ssl:
+        trust-store: classpath:keystore.jks
+        trust-store-password: 123456
+      database:
+        enabled: true
+        role: ${spring.application.name}
+      consul:
+        enabled: true
+        role: ${spring.application.name}
+      config.lifecycle:
+        enabled: true
+        min-renewal: 10s
+        expiry-threshold: 1m
+apollo:
+  meta: http://10.208.5.195:8080,http://10.208.5.196:8080
+  cacheDir: ./.apollo

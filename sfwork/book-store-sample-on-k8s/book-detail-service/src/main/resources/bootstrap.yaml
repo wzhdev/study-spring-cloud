@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: book-detail-service
+  profiles:
+    active: dev

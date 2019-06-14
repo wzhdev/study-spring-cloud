@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: detail-service
+  profiles:
+    active: uat
+  cloud:
+    inetutils:
+      preferred-networks:
+      - 10.*
+app:
+  id: ${spring.application.name}

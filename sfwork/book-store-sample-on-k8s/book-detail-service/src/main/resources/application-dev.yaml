@@ -1,0 +1,23 @@
+server:
+  error:
+    include-stacktrace: ALWAYS
+management:
+  endpoint:
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+spring:
+  devtools:
+    restart:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:h2:mem:mydb?DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    pool-size: 10

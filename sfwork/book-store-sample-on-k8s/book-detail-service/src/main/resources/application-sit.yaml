@@ -1,0 +1,16 @@
+server:
+  error:
+    include-stacktrace: ON_TRACE_PARAM
+spring:
+  devtools:
+    restart:
+      enabled: false
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://192.168.1.11:3306/book_detail_service
+    username: root
+    password: sf123456
+    pool-size: 10

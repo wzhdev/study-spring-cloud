@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: book-store-app
+  profiles:
+    active: dev
+  cloud:
+    inetutils:
+      preferred-networks:
+      - 10.*
+app:
+  id: ${spring.application.name}
