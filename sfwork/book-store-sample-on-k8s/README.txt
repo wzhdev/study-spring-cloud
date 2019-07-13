@@ -18,11 +18,11 @@ rules:
   - apiGroups:
       - ""
     resources:
-	  - pods
+      - pods
       - services
       - endpoints
       - secrets
-	  - configmaps
+      - configmaps
     verbs:
       - get
       - list
