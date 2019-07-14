@@ -1,23 +1,14 @@
 server:
+  port: 8080
   error:
     include-stacktrace: ON_TRACE_PARAM
 spring:
-  cloud:
-    consul:
-      enabled: true
-      host: consul.wzh
-      discovery:
-        aclToken: ${spring.cloud.consul.token}
-        instanceId: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
-        healthCheckPath: /${spring.application.name}/actuator/health
-        healthCheckCriticalTimeout: 60s
-        preferIpAddress: true
-        tags: foo=bar, baz
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: validate
   datasource:
-    url: jdbc:mysql://192.168.1.121:3306/book_detail_service
-    username: sa
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DATABASE}?useUnicode=true&characterEncoding=utf8
+    username: ${MYSQL_USER}
+    password: ${MYSQL_ROOT_PASSWORD}
     pool-size: 10

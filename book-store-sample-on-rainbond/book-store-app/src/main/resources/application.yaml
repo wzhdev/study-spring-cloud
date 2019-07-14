@@ -1,3 +1,5 @@
+server:
+  port: 8081
 info:
   app:
     name: @project.name@
@@ -10,4 +12,4 @@ spring:
   profiles:
     active: sit
   application:
-    name: book-detail-service
+    name: book-store-app

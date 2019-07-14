@@ -6,9 +6,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(value = "book-detail-service")
+@FeignClient(name = "book-detail-service", url = "http://${BOOK_DETAIL_SERVICE_HOST}:${BOOK_DETAIL_SERVICE_PORT}")
 public interface BookDetailClient {
 
-    @GetMapping("/book-detail-service/api/v1/bookDetail/{id}")
+    @GetMapping("/api/v1/bookDetails/{id}")
     ResponseEntity<BookDetail> getBookDetailById(@PathVariable("id") int id);
 }

@@ -4,11 +4,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @ApiModel("产品详情")
-public class ProductDetail {
+public class ProductDetail implements Serializable {
 
     @ApiModelProperty(value = "ID")
     private int id;
