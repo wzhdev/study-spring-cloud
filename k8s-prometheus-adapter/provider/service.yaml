@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: provider
+  labels:
+    run: dubbo-demo-provider
+spec:
+  type: ClusterIP
+  ports:
+  - port: 20880
+    targetPort: 20880
+    name: dubbo
+  - port: 19090
+    targetPort: 19090
+    name: jmx-prometheus
+  selector:
+    run: dubbo-demo-provider

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dubbo-demo-consumer
+spec:
+  selector:
+    matchLabels:
+      run: dubbo-demo-consumer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: dubbo-demo-consumer
+    spec:
+      containers:
+      - name: dubbo-demo-consumer
+        image: docker.io/library/dubbo-demo-consumer:v1
+        tty: true
+        env:
+        - name: DUBBO_IP_TO_BIND
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        ports:
+        - containerPort: 18080
+        - containerPort: 19090
