@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  labels:
+    app: dubbo-demo-consumer
+  name: dubbo-demo-consumer
+  namespace: monitoring
+spec:
+  podMetricsEndpoints:
+  - interval: 15s
+    path: /metrics
+    targetPort: 19090
+  namespaceSelector:
+    matchNames:
+    - default
+  selector:
+    matchLabels:
+      run: dubbo-demo-consumer
